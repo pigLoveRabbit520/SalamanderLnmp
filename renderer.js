@@ -3,10 +3,8 @@
 // All of the Node.js APIs are available in this process.
 var childProcess = require('child_process');
 
-var ls = childProcess.exec('cat *.js | wc', function (error, stdout, stderr) {
-   if (error) {
-     console.log(error.stack);
-     console.log('Error code: '+error.code);
-   }
-   console.log('Child Process STDOUT: '+stdout);
+var ls = childProcess.exec('ps -ef | grep nginx', function (error, stdout, stderr) {
+	if (!error) {
+		console.log(stdout);
+	}
 });

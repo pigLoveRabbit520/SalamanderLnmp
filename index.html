@@ -24,6 +24,54 @@
     .item img {
         width: 100%;
     }
+    .btn {
+        display: inline-block;
+    }
+    /*switch style*/
+    .onoffswitch {
+        position: relative; 
+        width: 60px;
+        -webkit-user-select:none; 
+        -moz-user-select:none; 
+        -ms-user-select: none;
+    }
+    .onoffswitch-checkbox {
+        display: none;
+    }
+    .onoffswitch-label {
+        display: block; 
+        overflow: hidden; 
+        cursor: pointer;
+        height: 30px; 
+        padding: 0; 
+        line-height: 30px;
+        border: 2px solid #999999; 
+        border-radius: 30px;
+        background-color: #EEEEEE;
+        transition: background-color 0.3s ease-in;
+    }
+    .onoffswitch-label:before {
+        content: "";
+        display: block; 
+        width: 30px; 
+        margin: 0px;
+        background: #FFFFFF;
+        position: absolute; 
+        top: 0; bottom: 0;
+        right: 28px;
+        border: 2px solid #999999; 
+        border-radius: 30px;
+        transition: all 0.3s ease-in 0s; 
+    }
+    .onoffswitch-checkbox:checked + .onoffswitch-label {
+        background-color: #5DBF39;
+    }
+    .onoffswitch-checkbox:checked + .onoffswitch-label, .onoffswitch-checkbox:checked + .onoffswitch-label:before {
+       border-color: #5DBF39;
+    }
+    .onoffswitch-checkbox:checked + .onoffswitch-label:before {
+        right: 0px; 
+    }
 </style>
 </head>
 <body>
@@ -40,5 +88,31 @@
              <img src="./images/mysql.png">
         </div>
     </div>
+    <div class="container">
+        <div class="item">
+            <div class="onoffswitch btn">
+                <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="switch-nginx">
+                <label class="onoffswitch-label" for="switch-nginx"></label>
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="onoffswitch btn">
+                <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="switch-php">
+                <label class="onoffswitch-label" for="switch-php"></label>
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="onoffswitch btn">
+                <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="switch-mysql">
+                <label class="onoffswitch-label" for="switch-mysql"></label>
+            </div>
+        </div>
+    </div>
+    <script>
+        // You can also require other files to run in this process
+        require('./renderer.js')
+    </script>
 </body>
 </html>
